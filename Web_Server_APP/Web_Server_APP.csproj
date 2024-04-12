@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
@@ -11,12 +11,24 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
-	<ItemGroup>
-		<None Update="images\**\*">
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-		<!-- Other items -->
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
 
+  <ItemGroup>
+    <None Update="images\**\*">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <!-- Other items -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Web_Server.Core\Web_Server.Core.csproj" />
+    <ProjectReference Include="..\Web_Server.Infrastructure\Web_Server.Infrastructure.csproj" />
+  </ItemGroup>
 </Project>
